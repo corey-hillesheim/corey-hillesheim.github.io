@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Music Videos · Corey Hillesheim</title>
-  <meta name="description" content="A playlist of AI music videos, curated by Corey Hillesheim.">
+  <title>Slopcore · Corey Hillesheim</title>
+  <meta name="description" content="Slopcore, a playlist curated by Corey Hillesheim.">
   <meta name="theme-color" content="#07080c">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,7 @@
   <div class="wrap">
     <header>
       <a class="home" href="/" aria-label="Home">CH</a>
-      <h1>AI Music <em>Videos</em></h1>
+      <h1><em>Slopcore</em></h1>
       <p class="sub" id="count">A playlist</p>
       <div class="rule" aria-hidden="true"><span></span><i></i><span></span></div>
     </header>
@@ -102,7 +102,7 @@
     fetch('videos.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
       items = data.filter(function (v) { return v && /^https:\/\/(x|twitter)\.com\//.test(v.link); });
       list.innerHTML = '';
-      document.getElementById('count').textContent = items.length + ' videos · curated from X';
+      document.getElementById('count').textContent = items.length + ' tracks · curated from X';
       items.forEach(function (v, i) {
         var li = el('li', 'track'); li.id = 't' + (i + 1);
         var meta = el('div', 'meta'); meta.append(el('span', 'num', String(i + 1).padStart(2, '0')));

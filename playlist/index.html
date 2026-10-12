@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Music Videos · Corey Hillesheim</title>
+  <meta name="description" content="A playlist of AI music videos, curated by Corey Hillesheim.">
+  <meta name="theme-color" content="#07080c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#07080c; --gold-1:#f6e2b3; --gold-2:#d4a95c; --gold-3:#9c7330; --dim:rgba(240,228,205,.55); }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--bg); color:#f3ead8; font-family:"Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased; min-height:100vh; }
+    .aurora { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.6; mix-blend-mode:screen; }
+    .orb.a { width:55vmax; height:55vmax; left:-15vmax; top:-20vmax; background:radial-gradient(circle,rgba(212,169,92,.5),transparent 65%); animation:da 26s ease-in-out infinite alternate; }
+    .orb.b { width:60vmax; height:60vmax; right:-20vmax; bottom:-25vmax; background:radial-gradient(circle,rgba(70,90,170,.5),transparent 65%); animation:db 32s ease-in-out infinite alternate; }
+    .orb.c { width:40vmax; height:40vmax; left:30%; top:40%; background:radial-gradient(circle,rgba(140,70,120,.3),transparent 65%); animation:dc 38s ease-in-out infinite alternate; }
+    @keyframes da { to { transform:translate(18vw,22vh) scale(1.15); } }
+    @keyframes db { to { transform:translate(-20vw,-18vh) scale(1.1); } }
+    @keyframes dc { to { transform:translate(-25vw,-30vh) scale(.85); } }
+    .vignette { position:fixed; inset:0; z-index:1; pointer-events:none; background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.75) 100%); }
+    .wrap { position:relative; z-index:2; max-width:640px; margin:0 auto; padding:2.5rem 1.25rem 7rem; }
+    header { text-align:center; margin-bottom:2.5rem; }
+    .home { display:inline-grid; place-items:center; width:58px; height:58px; border-radius:50%; border:1px solid rgba(212,169,92,.5);
+      font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.3rem; color:var(--gold-2); text-decoration:none; transition:border-color .3s; }
+    .home:hover,.home:focus-visible { border-color:var(--gold-1); color:var(--gold-1); }
+    h1 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:300; font-size:clamp(2.6rem,9vw,4.5rem); line-height:1; margin-top:1.25rem;
+      background:linear-gradient(110deg,var(--gold-3) 0%,var(--gold-1) 30%,#fff8e7 45%,var(--gold-2) 60%,var(--gold-3) 100%); background-size:250% 100%;
+      -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer 9s ease-in-out infinite; }
+    h1 em { font-style:italic; }
+    @keyframes shimmer { 0%,100% { background-position:100% 0; } 50% { background-position:0 0; } }
+    .sub { color:var(--dim); font-size:.8rem; letter-spacing:.25em; text-transform:uppercase; margin-top:.9rem; }
+    .rule { display:flex; align-items:center; justify-content:center; gap:.9rem; margin-top:1.5rem; }
+    .rule span { height:1px; width:90px; background:linear-gradient(90deg,transparent,rgba(212,169,92,.75)); }
+    .rule span:last-child { background:linear-gradient(270deg,transparent,rgba(212,169,92,.75)); }
+    .rule i { width:7px; height:7px; transform:rotate(45deg); border:1px solid var(--gold-2); display:block; }
+    ol { list-style:none; }
+    .track { scroll-margin-top:1.5rem; margin-bottom:2.75rem; }
+    .meta { display:flex; align-items:baseline; gap:.9rem; margin-bottom:.6rem; padding-bottom:.5rem; border-bottom:1px solid rgba(212,169,92,.18); }
+    .num { font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.9rem; color:var(--gold-2); min-width:2.2ch; }
+    .who { font-size:.9rem; } .who small { display:block; color:var(--dim); font-size:.75rem; letter-spacing:.06em; margin-top:.15rem; }
+    .track.active .meta { border-bottom-color:rgba(246,226,179,.6); } .track.active .num { color:var(--gold-1); }
+    .twitter-tweet { margin:0 auto !important; }
+    blockquote.twitter-tweet { color:var(--dim); font-size:.9rem; border-left:2px solid var(--gold-3); padding:.5rem 1rem; }
+    blockquote a, .who a { color:var(--gold-2); }
+    .status { text-align:center; color:var(--dim); }
+    .bar { position:fixed; z-index:3; left:50%; bottom:1rem; transform:translateX(-50%); width:min(600px,calc(100% - 1.5rem));
+      display:flex; align-items:center; gap:.6rem; padding:.55rem .6rem .55rem 1rem; border-radius:999px;
+      background:rgba(12,13,20,.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(212,169,92,.3); box-shadow:0 10px 40px rgba(0,0,0,.5); }
+    .np { flex:1; min-width:0; font-size:.78rem; line-height:1.35; }
+    .np b { color:var(--gold-2); font-weight:400; letter-spacing:.14em; text-transform:uppercase; font-size:.65rem; margin-right:.35rem; }
+    .np div { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .np .next { color:var(--dim); }
+    .bar button { flex:none; width:40px; height:40px; border-radius:50%; border:1px solid rgba(212,169,92,.45); background:transparent; color:var(--gold-1); font-size:1rem; cursor:pointer; }
+    .bar button:hover,.bar button:focus-visible { background:rgba(212,169,92,.15); outline:none; }
+    .bar button:disabled { opacity:.3; cursor:default; }
+    @media (max-width:520px) { .orb { filter:blur(60px); } .num { font-size:1.6rem; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="wrap">
+    <header>
+      <a class="home" href="/" aria-label="Home">CH</a>
+      <h1>AI Music <em>Videos</em></h1>
+      <p class="sub" id="count">A playlist</p>
+      <div class="rule" aria-hidden="true"><span></span><i></i><span></span></div>
+    </header>
+    <ol id="list"><li class="status">Loading playlist…</li></ol>
+  </div>
+  <nav class="bar" aria-label="Playlist controls">
+    <button id="prev" aria-label="Previous video">&#8593;</button>
+    <div class="np" aria-live="polite"><div id="now"><b>Now</b>—</div><div class="next" id="next"><b>Next</b>—</div></div>
+    <button id="nextBtn" aria-label="Next video">&#8595;</button>
+  </nav>
+  <script>
+  (function () {
+    var list = document.getElementById('list'), items = [], cur = 0;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+    function fmt(d) { var p = String(d || '').split('-'); if (p.length !== 3) return d || '';
+      return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); }
+    function label(v) { return v ? v.author : '—'; }
+    function update() {
+      document.getElementById('now').innerHTML = '<b>Now</b>'; document.getElementById('now').append((cur + 1) + '. ' + label(items[cur]));
+      var n = document.getElementById('next'); n.innerHTML = '<b>Next</b>';
+      n.append(items[cur + 1] ? (cur + 2) + '. ' + label(items[cur + 1]) : 'End of playlist');
+      document.getElementById('prev').disabled = cur <= 0;
+      document.getElementById('nextBtn').disabled = cur >= items.length - 1;
+      document.querySelectorAll('.track').forEach(function (t, i) { t.classList.toggle('active', i === cur); });
+    }
+    function go(i) { if (i < 0 || i >= items.length) return; cur = i; update();
+      document.getElementById('t' + (i + 1)).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+    document.getElementById('prev').onclick = function () { go(cur - 1); };
+    document.getElementById('nextBtn').onclick = function () { go(cur + 1); };
+    document.addEventListener('keydown', function (e) { if (e.key === 'j' || e.key === 'ArrowRight') go(cur + 1); if (e.key === 'k' || e.key === 'ArrowLeft') go(cur - 1); });
+    fetch('videos.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+      items = data.filter(function (v) { return v && /^https:\/\/(x|twitter)\.com\//.test(v.link); });
+      list.innerHTML = '';
+      document.getElementById('count').textContent = items.length + ' videos · curated from X';
+      items.forEach(function (v, i) {
+        var li = el('li', 'track'); li.id = 't' + (i + 1);
+        var meta = el('div', 'meta'); meta.append(el('span', 'num', String(i + 1).padStart(2, '0')));
+        var who = el('div', 'who', v.author); who.append(el('small', null, 'Posted ' + fmt(v.datePosted))); meta.append(who);
+        var bq = el('blockquote', 'twitter-tweet'); bq.setAttribute('data-theme', 'dark'); bq.setAttribute('data-dnt', 'true'); bq.setAttribute('data-align', 'center');
+        var p = el('p', null, v.text); var a = el('a', null, 'View on X →'); a.href = v.link.replace('https://x.com/', 'https://twitter.com/');
+        bq.append(p, a); li.append(meta, bq); list.append(li);
+      });
+      update();
+      var s = document.createElement('script'); s.async = true; s.src = 'https://platform.twitter.com/widgets.js'; document.body.append(s);
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { cur = +e.target.id.slice(1) - 1; update(); } }); },
+          { rootMargin: '-40% 0px -55% 0px' });
+        document.querySelectorAll('.track').forEach(function (t) { io.observe(t); });
+      }
+    }).catch(function () { list.innerHTML = '<li class="status">Couldn’t load the playlist. Please refresh.</li>'; });
+  })();
+  </script>
+</body>
+</html>

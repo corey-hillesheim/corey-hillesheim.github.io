@@ -147,6 +147,10 @@
       .monogram, .rule, h1 .word { opacity: 1 !important; transform: none !important; }
       h1 .word { background-position: 50% 0; }
     }
+    .more { position:relative; display:inline-block; margin-top:1.4rem; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase;
+      color:var(--text-dim); text-decoration:none; opacity:0; animation:fade 1.6s ease 1.8s forwards; transition:color .3s; }
+    .more:hover, .more:focus-visible { color:var(--gold-1); }
+    @media (prefers-reduced-motion: reduce) { .more { opacity:1 !important; } }
   </style>
 </head>
 <body>
@@ -165,6 +169,7 @@
       <span class="line"><span class="word">Hillesheim</span></span>
     </h1>
     <div class="rule" aria-hidden="true"><span></span><i></i><span></span></div>
+    <a class="more" href="/playlist/">AI Music Videos</a>
   </main>
 </body>
 </html>

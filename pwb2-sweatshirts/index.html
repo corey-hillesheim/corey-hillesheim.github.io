@@ -17,7 +17,7 @@ button.sub{width:100%;margin-top:20px;padding:15px;border:0;border-radius:12px;b
 </style></head><body><main>
 <div id="f"><h1>PW B2 Black Sweatshirt Ranking</h1>
 <div class="note">Raven's mock-ups · <b>$40 each</b> · <b>25-sweatshirt minimum</b>.<br>Drag (or use ▲▼) to order all 7 — <b>1st = your favorite</b>. Tap a picture to enlarge.</div>
-<form id="frm"><label for="pn">Player name <small style="color:var(--m);font-weight:400">(optional)</small></label><input id="pn" maxlength="80" autocomplete="off">
+<form id="frm" novalidate><label for="pn">Player name</label><input id="pn" maxlength="80" autocomplete="off" required aria-describedby="pnerr"><div id="pnerr" style="color:#ff7a7a;margin-top:6px"></div>
 <label>Your ranking</label><ol id="list"></ol>
 <label for="cm">Comments <small style="color:var(--m);font-weight:400">(optional)</small></label><textarea id="cm" rows="3" maxlength="1000"></textarea>
 <button class="sub" id="sb" type="submit">Submit ranking</button><div id="err"></div></form></div>
@@ -36,7 +36,7 @@ let d=null;L.addEventListener('pointerdown',e=>{if(!e.target.closest('.h,.lb,.rk
 L.addEventListener('pointermove',e=>{if(!d)return;const o=[...L.children].find(x=>x!=d&&e.clientY<x.getBoundingClientRect().top+x.offsetHeight/2);o?L.insertBefore(d,o):L.append(d);num()});
 const end=()=>{if(d){d.classList.remove('drag');d=null}};L.addEventListener('pointerup',end);L.addEventListener('pointercancel',end);
 if(!ENDPOINT){const b=document.getElementById('sb');b.disabled=true;b.textContent='Voting opens soon'}
-document.getElementById('frm').onsubmit=async e=>{e.preventDefault();const b=document.getElementById('sb');b.disabled=true;b.textContent='Submitting…';
+document.getElementById('frm').onsubmit=async e=>{e.preventDefault();if(!pn.value.trim()){pnerr.textContent='Please enter the player name.';pn.focus();return}pnerr.textContent='';const b=document.getElementById('sb');b.disabled=true;b.textContent='Submitting…';
 const p={player:pn.value.trim(),ranking:[...L.children].map(x=>+x.dataset.o),comments:cm.value.trim(),ua:navigator.userAgent.slice(0,120)};
 try{await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(p)});f.style.display='none';ok.style.display='block';scrollTo(0,0)}
 catch(x){err.textContent='Could not submit — check your connection and try again.';b.disabled=false;b.textContent='Submit ranking'}};

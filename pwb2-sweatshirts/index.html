@@ -24,7 +24,7 @@ button.sub{width:100%;margin-top:20px;padding:15px;border:0;border-radius:12px;b
 <div id="ok"><h2>Thanks! 🏒</h2><p>Your ranking was submitted.</p></div></main>
 <div id="zoom"><img alt=""></div>
 <script>
-const ENDPOINT=""; // Apps Script web app /exec URL
+const ENDPOINT="https://script.google.com/macros/s/AKfycbzAacEkQTf2LlsbWyVUPncb674yBHwzka5k8_4lg5Z5UW7gLLXs4A-iuifp3xAI1cF-lg/exec"; // Apps Script web app /exec URL
 const O=["Blue-to-black fade","Black with neon-blue W","Black with blue lightning streaks","Blue/black fade, cream sleeve stripes","Cream/blue/black diagonal stripes","Blue with black splatter","Black with blue brush pattern"];
 const L=document.getElementById('list'),sfx=n=>n+(["th","st","nd","rd"][n]||"th");
 O.forEach((t,i)=>{const li=document.createElement('li');li.dataset.o=i+1;li.innerHTML=`<span class="h">⋮⋮</span><span class="rk"></span><img src="img/option${i+1}.jpg" alt="Option ${i+1}: ${t}" loading="lazy"><span class="lb">${t}<small>Option ${i+1}</small></span><span class="bt"><button type="button" aria-label="Move up">▲</button><button type="button" aria-label="Move down">▼</button></span>`;L.append(li)});

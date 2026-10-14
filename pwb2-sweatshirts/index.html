@@ -7,7 +7,7 @@ main{max-width:640px;margin:auto;padding:20px 14px 60px}h1{font-size:1.6rem;marg
 .note{background:var(--c);border:1px solid #23304a;border-radius:12px;padding:12px 14px;color:var(--m);margin:12px 0 18px}.note b{color:var(--t)}
 label{display:block;font-weight:600;margin:16px 0 6px}input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #2a3550;background:var(--c);color:var(--t);font:inherit}
 ol{list-style:none;padding:0;margin:0}li{display:flex;align-items:center;gap:10px;background:var(--c);border:1px solid #23304a;border-radius:12px;padding:8px;margin:8px 0;touch-action:none}
-li.drag{opacity:.5;border-color:var(--blue)}.rk{min-width:42px;text-align:center;font-weight:800;color:var(--blue);font-size:1.1rem}
+li:nth-child(-n+3){border-color:#2f8cff66;background:#17213a}li.drag{opacity:.5;border-color:var(--blue)}.rk{min-width:42px;text-align:center;font-weight:800;color:var(--blue);font-size:1.1rem}
 li img{width:84px;height:64px;object-fit:cover;border-radius:8px;cursor:zoom-in}.lb{flex:1;min-width:0;font-size:.95rem}.lb small{display:block;color:var(--m)}
 .bt{display:flex;flex-direction:column;gap:4px}.bt button{width:40px;height:32px;border:0;border-radius:8px;background:#22304a;color:var(--t);font-size:1rem}
 .h{cursor:grab;color:var(--m);font-size:1.3rem;padding:0 2px}
@@ -18,7 +18,7 @@ button.sub{width:100%;margin-top:20px;padding:15px;border:0;border-radius:12px;b
 <div id="f"><h1>PW B2 Black Sweatshirt Ranking</h1>
 <div class="note">Raven's mock-ups · <b>$40 each</b> · <b>25-sweatshirt minimum</b>.<br>Drag (or use ▲▼) to order all 7 — <b>1st = your favorite</b>. Tap a picture to enlarge.</div>
 <form id="frm" novalidate><label for="pn">Player name</label><input id="pn" maxlength="80" autocomplete="off" required aria-describedby="pnerr"><div id="pnerr" style="color:#ff7a7a;margin-top:6px"></div>
-<label>Your ranking</label><ol id="list"></ol>
+<label>Your ranking (Top 3)</label><ol id="list"></ol>
 <label for="cm">Comments <small style="color:var(--m);font-weight:400">(optional)</small></label><textarea id="cm" rows="3" maxlength="1000"></textarea>
 <button class="sub" id="sb" type="submit">Submit ranking</button><div id="err"></div></form></div>
 <div id="ok"><h2>Thanks! 🏒</h2><p>Your ranking was submitted.</p></div></main>
